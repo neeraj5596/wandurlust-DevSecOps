@@ -183,9 +183,6 @@ Services running:
 
 **Linux | DevOps | Cloud Engineer**
 
-🔗 GitHub: https://github.com/neeraj5596
-
-🔗 LinkedIn: https://www.linkedin.com/in/neeraj-kumar-verma/
 
 🌐 Portfolio: https://www.neerajverma.space
 
