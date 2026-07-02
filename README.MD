@@ -1,126 +1,130 @@
 # 🚀 Wanderlust DevSecOps CI/CD Pipeline
 
-> End-to-End DevSecOps Pipeline for a MERN Stack Application using Jenkins, Docker, SonarQube, OWASP Dependency Check, Trivy, MongoDB, Redis and AWS EC2.
+> End-to-End DevSecOps CI/CD Pipeline for a MERN Stack Application using Jenkins, SonarQube, OWASP Dependency Check, Trivy, Docker, Docker Compose, MongoDB, Redis and AWS EC2.
 
 ---
 
 # 📌 Project Overview
 
-This project demonstrates an enterprise-grade DevSecOps CI/CD pipeline for deploying the Wanderlust MERN application.
+This project demonstrates an end-to-end DevSecOps pipeline for deploying the Wanderlust MERN Stack application.
 
-The application is automatically built, analyzed, scanned for vulnerabilities and deployed using Docker Compose.
+The pipeline automates the complete software delivery lifecycle:
 
----
-
-# 🏗 Architecture
-
-<img src="images/architecture.png">
+- Source Code Checkout
+- Static Code Analysis
+- Dependency Vulnerability Scan
+- Quality Gate Validation
+- File System Security Scan
+- Docker Image Build
+- Docker Compose Deployment
 
 ---
 
 # ⚙️ Tech Stack
 
-| Category | Tools |
-|----------|--------|
-| SCM | GitHub |
-| CI | Jenkins |
-| Code Quality | SonarQube |
+| Category | Technology |
+|-----------|------------|
+| Source Code | GitHub |
+| CI/CD | Jenkins |
+| Code Analysis | SonarQube |
 | Dependency Scan | OWASP Dependency Check |
-| Security Scan | Trivy |
-| Containers | Docker |
+| Vulnerability Scan | Trivy |
+| Containerization | Docker |
 | Orchestration | Docker Compose |
 | Database | MongoDB |
 | Cache | Redis |
 | Cloud | AWS EC2 |
-| Backend | Node.js |
 | Frontend | React (Vite) |
+| Backend | Node.js |
 
 ---
 
-# 🔄 CI/CD Pipeline
+# 🔄 CI/CD Pipeline Workflow
 
-The Jenkins Pipeline performs the following stages:
+```
+GitHub
+   │
+   ▼
+Clone Repository
+   │
+   ▼
+SonarQube Analysis
+   │
+   ▼
+OWASP Dependency Check
+   │
+   ▼
+Quality Gate
+   │
+   ▼
+Trivy File System Scan
+   │
+   ▼
+Docker Build
+   │
+   ▼
+Docker Compose Deployment
+   │
+   ▼
+Application Deployment
+```
 
-✅ Clone Source Code
+---
 
-↓
+# 📷 Jenkins Pipeline
 
-✅ SonarQube Static Code Analysis
+<p align="center">
+  <img src="pipeline.png" width="1000">
+</p>
 
-↓
+---
 
-✅ OWASP Dependency Check
+# 📊 SonarQube Dashboard
 
-↓
+The project uses SonarQube for:
 
-✅ Sonar Quality Gate Validation
+- Static Code Analysis
+- Bug Detection
+- Code Smells
+- Security Vulnerability Detection
+- Quality Gate Validation
 
-↓
-
-✅ Trivy Filesystem Scan
-
-↓
-
-✅ Docker Image Build
-
-↓
-
-✅ Docker Compose Deployment
-
-↓
-
-✅ Application Deployment
+<p align="center">
+  <img src="Sonar.png" width="1000">
+</p>
 
 ---
 
 # 🔒 Security Scanning
 
-## SonarQube
+### ✅ SonarQube
 
 - Static Code Analysis
-- Code Smells Detection
 - Bugs Detection
-- Vulnerabilities
+- Code Smells Detection
+- Security Vulnerabilities
 - Quality Gate Validation
 
-📷 Screenshot
+### ✅ OWASP Dependency Check
 
-![Sonar](images/sonarqube.png)
+- Dependency Vulnerability Scan
+- CVE Detection
+- HTML & XML Report Generation
 
----
+### ✅ Trivy
 
-## OWASP Dependency Check
-
-- Detect Vulnerable Libraries
-- CVE Scanning
-- Dependency Report Generation
-
-📷 Screenshot
-
-![OWASP](images/dependency-check.png)
-
----
-
-## Trivy
-
-Filesystem Scan
-
-- OS Packages
-- Vulnerabilities
-- Secrets
-- Misconfigurations
-
-📷 Screenshot
-
-![Trivy](images/trivy.png)
+- File System Scan
+- Vulnerability Detection
+- Secret Detection
+- Misconfiguration Detection
 
 ---
 
 # 🐳 Docker Deployment
 
-Application deployed using Docker Compose.
+The application is deployed using Docker Compose.
 
-Containers
+Containers:
 
 - Frontend
 - Backend
@@ -133,56 +137,18 @@ docker compose up -d --build
 
 ---
 
-# ☁ AWS Deployment
+# ☁️ AWS Deployment
 
-Application hosted on AWS EC2 Instance.
+The complete application is hosted on an AWS EC2 Instance.
 
-Services Running
+Services running:
 
 - Jenkins
 - SonarQube
-- MongoDB
-- Redis
 - Docker
 - Docker Compose
-
----
-
-# 📸 Project Screenshots
-
-## Jenkins Pipeline
-
-![Pipeline](images/pipeline.png)
-
----
-
-## SonarQube Dashboard
-
-![Sonar](images/sonarqube-dashboard.png)
-
----
-
-## Dependency Check Report
-
-![Dependency](images/dependency-report.png)
-
----
-
-## Trivy Report
-
-![Trivy](images/trivy-report.png)
-
----
-
-## Docker Containers
-
-![Docker](images/docker.png)
-
----
-
-## Running Application
-
-![Application](images/application.png)
+- MongoDB
+- Redis
 
 ---
 
@@ -190,75 +156,39 @@ Services Running
 
 ```
 .
-├── backend
-├── frontend
-├── Jenkinsfile
+├── backend/
+├── frontend/
 ├── docker-compose.yml
-├── README.md
-└── images
+├── README.MD
+├── pipeline.png
+└── Sonar.png
 ```
 
 ---
 
-# 🚀 Pipeline Workflow
-
-```text
-GitHub
-   │
-   ▼
-Jenkins
-   │
-   ▼
-SonarQube
-   │
-   ▼
-OWASP Dependency Check
-   │
-   ▼
-Quality Gate
-   │
-   ▼
-Trivy Scan
-   │
-   ▼
-Docker Build
-   │
-   ▼
-Docker Compose
-   │
-   ▼
-AWS EC2 Deployment
-```
-
----
-
-# 📈 Future Improvements
+# 🚀 Future Improvements
 
 - Kubernetes Deployment
 - Helm Charts
 - Prometheus Monitoring
 - Grafana Dashboard
 - ArgoCD
-- Kubernetes Security Scanning
 - Email Notifications
 
 ---
 
 # 👨‍💻 Author
 
-**Neeraj Kumar Verma**
+## Neeraj Kumar Verma
 
-Linux | DevOps | Cloud Engineer
+**Linux | DevOps | Cloud Engineer**
 
-LinkedIn:
-https://linkedin.com/in/your-link
+🔗 GitHub: https://github.com/neeraj5596
 
-GitHub:
-https://github.com/neeraj5596
+🔗 LinkedIn: https://www.linkedin.com/in/neeraj-kumar-verma/
 
-Portfolio:
-https://www.neerajverma.space
+🌐 Portfolio: https://www.neerajverma.space
 
 ---
 
-⭐ If you found this project helpful, don't forget to star the repository.
+⭐ If you found this project useful, please consider giving it a Star.
